@@ -4,14 +4,21 @@ version: '3'
 services:
   dc-backend:
     # build:
-    #   context: ../dc-backend
+    #   context: .
     image: jawide/dc-backend
     restart: always
     container_name: dc-backend
     ports:
       - "5000:5000"
     volumes:
-      - backend-log:/app/log
+      - log:/app/log
+    environment:
+      REDIS_HOST: dc-redis
+  
+  dc-redis:
+    image: redis:alpine
+    restart: always
+    container_name: dc-redis
   
   dc-frontend:
     # build:

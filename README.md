@@ -14,6 +14,14 @@ dc install dc
 dc install nginx-proxy-manager
 ```
 
+or
+
+```bash
+pip install dc-cli-jawide
+dc install dc https://raw.githubusercontent.com/jawide/dc-dc/main/dc/docker-compose.yml
+dc install dc https://raw.githubusercontent.com/jawide/dc-dc/main/nginx-proxy-manager/docker-compose.yml
+```
+
 
 
 ## Traditional Deploy

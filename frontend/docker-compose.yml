@@ -1,0 +1,25 @@
+# https://www.cnblogs.com/jawide/p/16536708.html
+# https://blog.csdn.net/u010509052/article/details/105455813
+# https://blog.csdn.net/qq_44740871/article/details/122950156
+version: '3'
+services:
+  dc-frontend:
+    # build:
+    #   context: .
+    image: jawide/dc-frontend
+    restart: always
+    container_name: dc-frontend
+    ports:
+      - '5001:80'
+    volumes:
+      - conf:/etc/nginx/conf.d
+      - log:/var/log/nginx
+      - ssl:/ssl_certs
+    environment:
+      LISTEN_PORT: 80
+      API_HOST: http://host.docker.internal:5000/
+
+volumes:
+  conf: {}
+  log: {}
+  ssl: {}
